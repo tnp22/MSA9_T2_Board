@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ListController">
+   <children>
+      <TableView fx:id="boardTableView" layoutX="96.0" layoutY="125.0" prefHeight="400.0" prefWidth="740.0">
+        <columns>
+          <TableColumn fx:id="colNo" minWidth="60.0" prefWidth="60.0" text="번호" />
+          <TableColumn fx:id="colTitle" minWidth="320.0" prefWidth="75.0" text="제목" />
+            <TableColumn fx:id="colWriter" minWidth="120.0" prefWidth="75.0" text="작성자" />
+            <TableColumn fx:id="colRegDate" minWidth="120.0" prefWidth="75.0" text="등록일자" />
+            <TableColumn fx:id="colView" minWidth="120.0" prefWidth="75.0" text="조회수" />
+        </columns>
+      </TableView>
+      <Label layoutX="320.0" layoutY="38.0" text="게시판 프로그램">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAdd" layoutX="752.0" layoutY="549.0" mnemonicParsing="false" onAction="#add" prefHeight="48.0" prefWidth="85.0" text="글쓰기" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" layoutX="649.0" layoutY="549.0" mnemonicParsing="false" onAction="#delete" prefHeight="48.0" prefWidth="85.0" text="삭제하기" textAlignment="CENTER">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="searchTable" layoutX="633.0" layoutY="75.0" promptText="검색할 제목을 입력해주세요." />
+      <Button fx:id="btnSearch" layoutX="794.0" layoutY="75.0" mnemonicParsing="false" onAction="#Search" text="검색" />
+   </children>
+</AnchorPane>
