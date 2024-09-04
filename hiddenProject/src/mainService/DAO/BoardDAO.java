@@ -39,7 +39,7 @@ public class BoardDAO extends JDBConnection {
 				board.setContent(rs.getString("content"));
 				board.setRegDate(rs.getTimestamp("reg_date"));
 				board.setUpdDate(rs.getTimestamp("upd_date"));
-
+				board.setView(rs.getInt("view"));
 				// 게시글 목록 추가
 				boardList.add(board);
 			}
@@ -90,6 +90,7 @@ public class BoardDAO extends JDBConnection {
 				board.setContent(rs.getString("content"));
 				board.setRegDate(rs.getTimestamp("reg_date"));
 				board.setUpdDate(rs.getTimestamp("upd_date"));
+				board.setView(rs.getInt("view"));
 			}
 			
 		} catch (SQLException e) {
@@ -103,13 +104,14 @@ public class BoardDAO extends JDBConnection {
 	public int insert(Board board) {
 		int result = 0;		// 결과 : 적용된 데이터 개수
 		// SQL 작성
-				String sql = " insert into board(title,writer,content)"
-						+"values(?,?,?)";
+				String sql = " insert into board(title,writer,content,view)"
+						+"values(?,?,?,?)";
 		try {
 			psmt = con.prepareStatement(sql);			// 쿼리 실행 객체 생성
 			psmt.setString(1, board.getTitle());		// 1번 ? 에 title(제목) 매핑
 			psmt.setString(2, board.getWriter());		// 2번 ? 에 writer(작성자) 매핑
 			psmt.setString(3, board.getContent());		// 3번 ? 에 content(내용) 매핑
+			psmt.setInt(4, board.getView());
 			result =psmt.executeUpdate();				// SQL 실행 요청
 		} catch (SQLException e) {			
 			// * psmt.executeUpdate() : SQL 실행 시 적용된 데이터 개수를 받아온다.
@@ -138,8 +140,8 @@ public class BoardDAO extends JDBConnection {
 			psmt.setString(1, board.getTitle());		// 1번 ? 에 title(제목) 매핑
 			psmt.setString(2, board.getWriter());		// 2번 ? 에 writer(작성자) 매핑
 			psmt.setString(3, board.getContent());		// 3번 ? 에 content(내용) 매핑
-			psmt.setInt(4, board.getNo());				// 4번 ? 에 no(글번호) 매핑
-			psmt.setInt(5, board.getView());
+			psmt.setInt(4, board.getView());				// 4번 ? 에 no(글번호) 매핑
+			psmt.setInt(5, board.getNo());
 			result =psmt.executeUpdate();				// SQL 실행 요청
 		} catch (SQLException e) {			
 			// * psmt.executeUpdate() : SQL 실행 시 적용된 데이터 개수를 받아온다.
