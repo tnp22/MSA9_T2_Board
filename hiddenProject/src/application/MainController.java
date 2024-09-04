@@ -17,9 +17,7 @@ public class MainController {
 
     @FXML
     void close(ActionEvent event) {
-    
-
-    Main.exit();
+    	Main.exit();
     }
 
     @FXML
@@ -27,5 +25,4 @@ public class MainController {
     	Main.setRoot("Board");
 
     }
-
 }

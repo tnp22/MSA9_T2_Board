@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="930.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.addController">
    <children>
       <TextField fx:id="titleInput" layoutX="216.0" layoutY="42.0" prefHeight="86.0" prefWidth="499.0" promptText="제목을 입력하세요.">
@@ -21,5 +20,10 @@
       </TextArea>
       <Button fx:id="btnAdd" layoutX="666.0" layoutY="521.0" mnemonicParsing="false" onAction="#add" prefHeight="43.0" prefWidth="101.0" text="등록하기" />
       <Button fx:id="back" layoutX="164.0" layoutY="521.0" mnemonicParsing="false" onAction="#toBack" prefHeight="43.0" prefWidth="88.0" text="목록으로" />
+      <TextField fx:id="personInput" layoutX="755.0" layoutY="68.0" prefHeight="26.0" prefWidth="124.0" promptText="제목을 입력하세요.">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

@@ -29,7 +29,7 @@ public class Main extends Application {
 	}
 	public static void exit() {
 		Alert alert = new Alert(AlertType.CONFIRMATION);
-		alert.setTitle("프로그램 종러");
+		alert.setTitle("프로그램 종료");
 		alert.setHeaderText("프로그램을 종료하시겠습니까?");
 		
 		if(alert.showAndWait().get() == ButtonType.OK) {
@@ -58,6 +58,16 @@ public class Main extends Application {
 		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml+".fxml"));
 		return fxmlLoader.load();
 	}
+	
+	static FXMLLoader getFXML(String fxml) throws IOException {
+		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
+		return fxmlLoader;
+	}
+	
+	public static void setRoot(Parent root) throws IOException{
+		scene.setRoot(root);
+	}
+	
 	
 	public static void main(String[] args) {
 		launch(args);
