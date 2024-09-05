@@ -138,7 +138,22 @@ public class ListController {
     
     @FXML
     void Search(ActionEvent event) {
-
+        String searchText = searchTable.getText().toLowerCase();
+        if (searchText.isEmpty()) {
+            boardTableView.setItems(FXCollections.observableArrayList(boardList));
+        } else {
+            ObservableList<Board> filterList = FXCollections.observableArrayList();
+            for (Board board : boardList) {
+                if (board.getTitle().toLowerCase().contains(searchText) || // 제목에서 검색
+                    board.getWriter().toLowerCase().contains(searchText)) { // 작성자에서 검색
+                    filterList.add(board);
+                }
+            }
+            if (filterList.isEmpty()) {
+                System.out.println("검색 결과가 없습니다.");
+            }
+            boardTableView.setItems(filterList);
+        }
     }
 
 //    public void resetUI() {
