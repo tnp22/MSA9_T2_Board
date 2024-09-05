@@ -156,16 +156,6 @@ public class ListController {
         }
     }
 
-//    public void resetUI() {
-//        // Clear the TableView's items
-//        boardTableView.getItems().clear();
-//        
-//        // Optionally reset other UI elements (e.g., labels, input fields)
-//        // myLabel.setText("");
-//        
-//        // Reload data
-//        loadDataFromDatabase();
-//    }
     
     @FXML
     void add(ActionEvent event) throws IOException {
