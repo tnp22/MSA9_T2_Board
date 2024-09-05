@@ -108,17 +108,17 @@ public class ListController {
 					System.out.println("더블 클릭!");
 					
 					
-					// 상세 화면으로 이동 - Detail.fxml 화면으로 이동
+					// 상세 화면으로 이동 - view.fxml 화면으로 이동
 					try {
 						currentboard = boardTableView.getSelectionModel().getSelectedItem();
 						System.out.println("선택된 아이템 : " + currentboard);
 						FXMLLoader fxmlLoader = Main.getFXML("View");
 						Parent root = fxmlLoader.load();
-						viewController detailController = (viewController) fxmlLoader.getController();
+						viewController viewController = (viewController) fxmlLoader.getController();
 						// 데이터 전달
 						currentboard.setView(currentboard.getView()+1);
 						boardService.update(currentboard);
-						detailController.passData(currentboard);
+						viewController.passData(currentboard);
 						// 화면 이동
 						Main.setRoot(root);
 						
@@ -141,22 +141,17 @@ public class ListController {
 
     }
 
-    public void resetUI() {
-        // Clear the TableView's items
-        boardTableView.getItems().clear();
-        
-        // Optionally reset other UI elements (e.g., labels, input fields)
-        // myLabel.setText("");
-        
-        // Reload data
-        loadDataFromDatabase();
-    }
+//    public void resetUI() {
+//        // Clear the TableView's items
+//        boardTableView.getItems().clear();
+//        
+//        // Optionally reset other UI elements (e.g., labels, input fields)
+//        // myLabel.setText("");
+//        
+//        // Reload data
+//        loadDataFromDatabase();
+//    }
     
-    private void loadDataFromDatabase() {
-        // Clear the existing data
-        boardList = boardService.list();
-        
-    }
     @FXML
     void add(ActionEvent event) throws IOException {
     	Main.setRoot("Add");

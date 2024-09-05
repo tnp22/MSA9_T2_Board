@@ -36,9 +36,9 @@ public class addController {
     	//System.out.print("제목 : ");
 		//String title = sc.nextLine();
 		String title = titleInput.getText();
-		System.out.print("작성자 : ");
+		//System.out.print("작성자 : ");
 		String writer = personInput.getText();
-		System.out.print("내용 : ");
+		//System.out.print("내용 : ");
 		String content = contentInput.getText();
 		Board board = new Board(title, writer, content);
 		// 게시글 등록 요청
@@ -50,8 +50,9 @@ public class addController {
 		}
     	// B.fxml을 읽기
     	FXMLLoader listFXML = new FXMLLoader(getClass().getResource("Board.fxml"));
-    	// B 화면
+		// B 화면
     	Parent listRoot = listFXML.load();
+    	
     	// B.fxml 에 연결되 컨트롤러 bControllor 가져오기
     	//ListController listController = listFXML.getController();
     	// B 화면으로 data 전달 (bController 메소드 호출하면서 data 전달)

@@ -48,6 +48,10 @@ public class Main extends Application {
 		scene.setRoot(loadFXML(fxml));
 	}
 	
+	public static void setRoot(Parent root) throws IOException{
+		scene.setRoot(root);
+	}
+	
 	/**
 	 * FXML 파일 읽어오는 메소드
 	 * @param fxml
@@ -62,10 +66,6 @@ public class Main extends Application {
 	static FXMLLoader getFXML(String fxml) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
 		return fxmlLoader;
-	}
-	
-	public static void setRoot(Parent root) throws IOException{
-		scene.setRoot(root);
 	}
 	
 	

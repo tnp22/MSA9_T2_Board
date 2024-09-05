@@ -31,7 +31,21 @@ public class editController {
     void edit(ActionEvent event) throws IOException {
     	// 정보를 그대로 Board 로 전달
     	
-    	Main.setRoot("Board");
+    	String title = titleEdit.getText();
+		//System.out.print("작성자 : ");
+		String content = contentEdit.getText();
+		//System.out.print("내용 : ");
+		board.setTitle(title);
+		board.setContent(content);
+    	ListController.boardService.update(board);
+    	
+    	FXMLLoader fxmlLoader = Main.getFXML("View");
+		Parent root = fxmlLoader.load();
+		viewController detailController = (viewController) fxmlLoader.getController();
+		// 데이터 전달
+		detailController.passData(this.board);
+		// 화면 이동
+		Main.setRoot(root);
     }
 
     @FXML
