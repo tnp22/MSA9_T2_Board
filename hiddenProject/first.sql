@@ -7,6 +7,7 @@ CREATE TABLE `first_schema`.`board` (
   `content` TEXT NULL,
   `reg_date` TIMESTAMP NOT NULL DEFAULT now(),
   `upd_date` TIMESTAMP NOT NULL DEFAULT now(),
+  'view' int,
   PRIMARY KEY (`no`))
 COMMENT = '게시판';
 
