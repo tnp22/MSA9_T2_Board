@@ -24,5 +24,6 @@ public interface BoardService {
 	int update(Board board);
 //	 *  - 게시글 삭제
 	int delete(int no);
+	void view_update(Board currentboard);
 	
 }

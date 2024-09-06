@@ -117,7 +117,7 @@ public class ListController {
 						viewController viewController = (viewController) fxmlLoader.getController();
 						// 데이터 전달
 						currentboard.setView(currentboard.getView()+1);
-						boardService.update(currentboard);
+						boardService.view_update(currentboard);
 						viewController.passData(currentboard);
 						// 화면 이동
 						Main.setRoot(root);

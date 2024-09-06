@@ -154,6 +154,35 @@ public class BoardDAO extends JDBConnection {
 		
 		return result;
 	}
+	
+	public int view_update(Board board) {
+		int result = 0;		// 결과 : 적용된 데이터 개수
+		// SQL 작성
+				String sql = " update board"
+						+"		set title = ?"
+						+ "		,writer = ?"
+						+ "		,content = ?"
+						+ "		,view=?"
+						+ "	where no = ?";
+		try {
+			psmt = con.prepareStatement(sql);			// 쿼리 실행 객체 생성
+			psmt.setString(1, board.getTitle());		// 1번 ? 에 title(제목) 매핑
+			psmt.setString(2, board.getWriter());		// 2번 ? 에 writer(작성자) 매핑
+			psmt.setString(3, board.getContent());		// 3번 ? 에 content(내용) 매핑
+			psmt.setInt(4, board.getView());				// 4번 ? 에 no(글번호) 매핑
+			psmt.setInt(5, board.getNo());
+			result =psmt.executeUpdate();				// SQL 실행 요청
+		} catch (SQLException e) {			
+			// * psmt.executeUpdate() : SQL 실행 시 적용된 데이터 개수를 받아온다.
+			// SQL(INSERT, UPDATE, DELETE) 실행 시 적용된 데이터 개수를 int 타입으로 받아온다.
+			// ex) 게시글 1개 적용 성공 시, result : 1
+			//					실패 시, result : 0
+			System.out.println("게시글 변경 시, 예외 발생");
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
 
 	public int delete(int no) {
 		int result = 0;		// 결과 : 적용된 데이터 개수

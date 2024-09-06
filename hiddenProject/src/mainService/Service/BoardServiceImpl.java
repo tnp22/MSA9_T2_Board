@@ -63,4 +63,16 @@ public class BoardServiceImpl implements BoardService {
 		return result;
 	}
 
+	@Override
+	public void view_update(Board currentboard) {
+		// TODO Auto-generated method stub
+		int result = boardDAO.view_update(currentboard);
+		// 적용된 데이터 개수를 반환
+		// - result(결과)		: 0 --> 데이터 등록 실패
+		// - result(결과)		: 1 --> 데이터 등록 성골
+		if(result>0)System.out.println("DB_update 성공 : BoardServiceImpl");
+		else System.err.println("DB_update 실패 : BoardServiceImpl");
+		
+	}
+
 }
